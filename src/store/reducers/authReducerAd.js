@@ -19,6 +19,7 @@ const authReducesAd =( state = initState,action )=>{
     // this.history.navigate.navigation("/")
     console.log("LogOut_SuccesFull**authReduces**")
     return state;
+    // Delete User Section
     case "DELETE_STD_DETAILS_SUCCESSFUll":
     console.log("DELETE_DETAILS_SUCCESSFUll**authReduces**",action)
     return{
@@ -26,6 +27,20 @@ const authReducesAd =( state = initState,action )=>{
         authError:null
     }
     case "DELETE_USER_DETAILS_ERROR":
+    console.log("DELETE_DETAILS_ERROR**authReduces**")
+    return{
+        ...state,
+        authError:'Error_failed'
+    }
+
+    // Delete Company Section
+    case "DELETE_COMPANY_DETAILS_SUCCESSFUll":
+    console.log("DELETE_DETAILS_SUCCESSFUll**authReduces**",action)
+    return{
+        ...state,
+        authError:null
+    }
+    case "DELETE_COMPANY_DETAILS_ERROR":
     console.log("DELETE_DETAILS_ERROR**authReduces**")
     return{
         ...state,

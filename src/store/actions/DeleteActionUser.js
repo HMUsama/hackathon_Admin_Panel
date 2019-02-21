@@ -1,7 +1,6 @@
 export const deleteUser = (deleteInfo) =>{
     console.log("DDDDD",deleteInfo)
     return (dispatch,getState,{getFirebase, getFirestore }) => {
-        debugger
         const firebase=getFirebase();
         const firestore = getFirestore();
         firestore.collection("user").doc(deleteInfo).delete()

@@ -5,7 +5,7 @@ import {compose } from 'redux'
 import {  firestoreConnect  } from 'react-redux-firebase'
 import Loader from '../Loader'
 import { Link} from 'react-router-dom'
-import {deleteUser} from '../../../store/actions/DeleteActionUser'
+import {deleteCompany} from '../../../store/actions/DeleteActionCP'
 
 
 class ComapanyDetails extends Component {
@@ -17,7 +17,10 @@ class ComapanyDetails extends Component {
     }
     Delete(){
         console.log("ID",this.props.ID)
-        this.props.deleteUser(this.props.ID)
+        this.props.deleteCompany(this.props.ID)
+    }
+    chatCP(){
+        console.log("Chat")
     }
    render(){
     //    debugger
@@ -33,6 +36,7 @@ class ComapanyDetails extends Component {
                         <div>
                             <div className="card-content">
                             <span className="card-title">Company Name:{}</span>
+                            <img src={''} />
                             <p>Email:{companyInfo.email}</p>
                             <p>Number:{}</p>
                             <p>Message:{}</p>
@@ -44,6 +48,12 @@ class ComapanyDetails extends Component {
                                 onClick={this.Delete}
                                 >Delete
                                 <i className="material-icons left">delete</i>
+                                </button>
+
+                                <button className="btn waves-effect waves-light right"
+                                onClick={this.chatCP}
+                                >Chat Company
+                                <i className="material-icons left">chat</i>
                                 </button>
                             </div>
                         </div>
@@ -69,7 +79,7 @@ const mapStateToProps = (state,ownProps) => {
 }
 const mapDispatchToProps=(dispatch)=>{
     return{
-        deleteUser: (deleteInfo) =>dispatch(deleteUser(deleteInfo))
+        deleteCompany: (deleteInfo) =>dispatch(deleteCompany(deleteInfo))
     }
 }
 

@@ -40,11 +40,17 @@ class UserDetails extends Component {
                             <div className="card-action gret lighten-4 black-text">
                             <p>Location:{}</p>
                             <br/>
-                                <button className="btn waves-effect waves-light center"
-                                onClick={this.Delete}
-                                >Delete
-                                <i className="material-icons left">delete</i>
-                                </button>
+                            <button className="btn waves-effect waves-light center"
+                            onClick={this.Delete}
+                            >Delete
+                            <i className="material-icons left">delete</i>
+                            </button>
+
+                            <button className="btn waves-effect waves-light right"
+                            onClick={this.chatCP}
+                            >Chat Company
+                            <i className="material-icons left">chat</i>
+                            </button>
                             </div>
                         </div>
                     </div>
