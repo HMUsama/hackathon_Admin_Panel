@@ -5,7 +5,7 @@ import {compose } from 'redux'
 import {  firestoreConnect  } from 'react-redux-firebase'
 import Loader from '../Loader'
 import { Link} from 'react-router-dom'
-import {deleteUser} from '../../../store/actions/DeleteActionUser'
+import {deleteUser} from '../../../store/actions/ActionUser'
 
 
 class UserDetails extends Component {
@@ -27,18 +27,20 @@ class UserDetails extends Component {
         console.log("``````",userInfo)
         return(
             <div>
+                <center>
                  <h4 className="center white-text text-darken-3">User Details</h4>
+                </center>
                  <div className="container section project-details">
                     <div className="card z-depth-0">
                         <div>
                             <div className="card-content">
-                            <span className="card-title">User Name:{}</span>
+                            <span className="card-title">User Name:{userInfo.name}</span>
                             <p>Email:{userInfo.email}</p>
-                            <p>Number:{}</p>
-                            <p>Message:{}</p>
+                            <p>Number:{userInfo.number}</p>
+                            <p>Message:{userInfo.message}</p>
                             </div>
                             <div className="card-action gret lighten-4 black-text">
-                            <p>Location:{}</p>
+                            <p>Location:{userInfo.location}</p>
                             <br/>
                             <button className="btn waves-effect waves-light center"
                             onClick={this.Delete}
@@ -46,11 +48,10 @@ class UserDetails extends Component {
                             <i className="material-icons left">delete</i>
                             </button>
 
-                            <button className="btn waves-effect waves-light right"
-                            onClick={this.chatCP}
-                            >Chat Company
-                            <i className="material-icons left">chat</i>
-                            </button>
+                            <Link to={'/usersChat/'+ID} className="btn waves-effect waves-light right">
+                                Go To Chat
+                                <i className="material-icons left">chat</i>
+                            </Link>
                             </div>
                         </div>
                     </div>
@@ -65,12 +66,14 @@ class UserDetails extends Component {
   }
 }
 const mapStateToProps = (state,ownProps) => {
+    console.log("STATE",state)
     const id= ownProps.match.params.id;
     const userInfo= state.firestore.data.user;
     const userInformation= userInfo ? userInfo[id] :null
     return{
         userInfo:userInformation,
-        ID:id
+        ID:id,
+
     }
 }
 const mapDispatchToProps=(dispatch)=>{

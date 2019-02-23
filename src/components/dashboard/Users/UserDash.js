@@ -4,6 +4,7 @@ import UsersList from './UserList'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import {  firestoreConnect  } from 'react-redux-firebase'
+import Loader from '../Loader'
 
 class UserDash extends Component {
     constructor(props){
@@ -14,6 +15,11 @@ class UserDash extends Component {
 render(){
     const { userInfo} = this.props;
     console.log("User Info",userInfo)
+    if(!userInfo){
+        return(
+            <Loader/>
+        )
+    }else{
     return(
         <div className="row">
            <div className='col s8 m12 '>
@@ -23,7 +29,7 @@ render(){
         ) 
     }
 }
-
+}
 
 const mapStateToProps = (state) => {
     console.log("++++++",state)

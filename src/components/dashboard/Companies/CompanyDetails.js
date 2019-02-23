@@ -5,7 +5,7 @@ import {compose } from 'redux'
 import {  firestoreConnect  } from 'react-redux-firebase'
 import Loader from '../Loader'
 import { Link} from 'react-router-dom'
-import {deleteCompany} from '../../../store/actions/DeleteActionCP'
+import {deleteCompany} from '../../../store/actions/ActionCP'
 
 
 class ComapanyDetails extends Component {
@@ -19,9 +19,10 @@ class ComapanyDetails extends Component {
         console.log("ID",this.props.ID)
         this.props.deleteCompany(this.props.ID)
     }
-    chatCP(){
-        console.log("Chat")
-    }
+    // chatCP(){
+    //     console.log("Chat**********",this.props)
+    //     // this.props.navigation.navigate("usersChat")
+    // }
    render(){
     //    debugger
     const { ID } =this.props;
@@ -30,7 +31,9 @@ class ComapanyDetails extends Component {
         console.log("``````",companyInfo)
         return(
             <div>
+                <center>
                  <h4 className="center white-text text-darken-3">Company Details</h4>
+                </center>
                  <div className="container section project-details">
                     <div className="card z-depth-0">
                         <div>
@@ -38,23 +41,22 @@ class ComapanyDetails extends Component {
                             <span className="card-title">Company Name:{}</span>
                             <img src={''} />
                             <p>Email:{companyInfo.email}</p>
-                            <p>Number:{}</p>
+                            <p>Number:{companyInfo.number}</p>
+                            <p>Skills:{companyInfo.skills}</p>
                             <p>Message:{}</p>
                             </div>
                             <div className="card-action gret lighten-4 black-text">
-                            <p>Location:{}</p>
+                            <p>Location:{companyInfo.location}</p>
                             <br/>
                                 <button className="btn waves-effect waves-light center"
                                 onClick={this.Delete}
                                 >Delete
                                 <i className="material-icons left">delete</i>
                                 </button>
-
-                                <button className="btn waves-effect waves-light right"
-                                onClick={this.chatCP}
-                                >Chat Company
+                                <Link to={'/compantChat/'+ID} className="btn waves-effect waves-light right">
+                                Go To Chat
                                 <i className="material-icons left">chat</i>
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

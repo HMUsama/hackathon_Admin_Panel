@@ -9,11 +9,12 @@ import Dashboard from './components/dashboard/Dashboard'
 import CompanyDash from './components/dashboard/Companies/CompanyDash'
 import CompanyList from './components/dashboard/Companies/CompanyList'
 import ComapanyDetails from './components/dashboard/Companies/CompanyDetails'
+import ChatCP from './components/dashboard/Companies/ChatCP'
 
 import UsersList from './components/dashboard/Users/UserList'
 import UserDetails from './components/dashboard/Users/UsersDetails'
 import UserDash from './components/dashboard/Users/UserDash'
-
+import ChatUser from './components/dashboard/Users/ChatUser'
 
 
 
@@ -30,11 +31,13 @@ class App extends Component {
 
            <Route exact path="/companydashboard"   component={CompanyDash}/>
            <Route exact path="/company/:id"   component={ComapanyDetails}/>
+           <Route exact path="/compantChat/:id"   component={ChatCP}/>
 
         {/* Admin */}
            <Route exact path="/userdashboard"   component={UserDash}/>
-           <Route exact path="/user/:id"   component={UserDetails}/>
            <Route exact path="/userslist/:id"   component={UsersList}/>
+           <Route exact path="/user/:id"   component={UserDetails}/>
+           <Route exact path="/usersChat/:id"   component={ChatUser}/>
         {/* Admin */}
          </Switch>
        </div>
