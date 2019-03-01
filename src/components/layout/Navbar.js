@@ -17,9 +17,7 @@ const Navbar = (props) =>{
                 {link}
         </nav>
         <center>
-            {
-                authAd.uid ==true ? <Dashboard/>:null
-            }
+            {authAd.uid ==true ? <Dashboard/>:null}
                 </center>
         </div>
     )

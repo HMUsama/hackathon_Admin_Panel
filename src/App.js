@@ -15,6 +15,7 @@ import UsersList from './components/dashboard/Users/UserList'
 import UserDetails from './components/dashboard/Users/UsersDetails'
 import UserDash from './components/dashboard/Users/UserDash'
 import ChatUser from './components/dashboard/Users/ChatUser'
+import Chart from './components/dashboard/Chart/Chart'
 
 
 
@@ -28,6 +29,7 @@ class App extends Component {
          <Switch>
            <Route exact path="/adminsignin"   component={AdminLognin}/>
            <Route exact path="/dashboard"   component={Dashboard}/>
+           <Route exact path="/graph"   component={Chart}/>
 
            <Route exact path="/companydashboard"   component={CompanyDash}/>
            <Route exact path="/company/:id"   component={ComapanyDetails}/>
